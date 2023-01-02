@@ -2,9 +2,9 @@ import json
 import random
 
 # create a list of random data
-data = []
+
 for i in range(10):
-    data.append({
+    data= {
         "01": i,
         "02": "Make {}".format(i),
         "03": "Model {}".format(i),
@@ -14,8 +14,8 @@ for i in range(10):
         "07": random.uniform(0, 100),
         "08": random.uniform(5, 30),
         "09": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    })
+    }
+    # write the data to a JSON file
+    with open("file_{}.json".format(i), "w") as f:
+        json.dump(data, f)
 
-# write the data to a JSON file
-with open("auto_test_data.json", "w") as f:
-    json.dump(data, f)
